@@ -1,0 +1,384 @@
+sudo vim /root/back/tutorial/wsgi.py
+b. Type :1,$d and press Enter in Vim to select all, and delete the contents of the bitnami.conf file.
+
+c. Press I to edit, and add the following code to the wsgi.py file:
+
+
+
+
+
+
+
+
+
+
+
+import os
+import sys
+sys.path.append('/root/back')
+os.environ.setdefault("PYTHON_EGG_CACHE", "/root/back/egg_cache")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "tutorial.settings")
+from django.core.wsgi import get_wsgi_application
+application = get_wsgi_application()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+d. Press the Esc, type :wq! , and press Enter to save and quit Vim.
+
+e. Enter the following command to create a conf directory for your application
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+mkdir /root/back/conf
+
+
+
+
+
+
+
+
+
+
+
+f. Enter the following command to create a httpd-app.conf file in the conf directory you just created:
+sudo vim /root/back/conf/httpd-app.conf
+g. Press I to edit, and add the following code:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<IfDefine !IS_DJANGOSTACK_LOADED>
+      Define IS_DJANGOSTACK_LOADED
+      WSGIDaemonProcess wsgi-djangostack   processes=2 threads=15    display-name=%{GROUP}
+</IfDefine>
+
+<Directory "/opt/bitnami/tutorial/tutorial">
+    Options +MultiViews
+    AllowOverride All
+    <IfVersion >= 2.3>
+        Require all granted
+    </IfVersion>
+
+    WSGIProcessGroup wsgi-djangostack
+
+    WSGIApplicationGroup %{GLOBAL}
+</Directory>
+
+Alias /tutorial/static "/opt/bitnami/python/lib/python3.8/site-packages/django/contrib/admin/static/"
+WSGIScriptAlias /tutorial '/root/back/tutorial/wsgi.py'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+h. Press the Esc, type :wq! , and press Enter to save and quit Vim.
+
+i. Enter the following command to create a httpd-prefix.conf file in the conf directory for your application:
+
+
+
+
+
+
+
+
+
+
+
+
+sudo vim /root/back/conf/httpd-prefix.conf
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+j. Press I to edit, and add the following code:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Include "/root/back/conf/httpd-app.conf"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+k. Press the Esc, type :wq!, and press Enter to save and quit Vim.
+
+l. Enter the following command to open the bitnami.conf file:
+
+sudo vim /opt/bitnami/apache2/conf/bitnami/bitnami.conf
+
+
+
+
+
+m. Type :1,$d and press Enter in Vim to select all, and delete the contents of the bitnami.conf file
+n. Press I to edit, and add the following code to the file:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<VirtualHost _default_:80>
+    WSGIScriptAlias / /root/back/honeb/wsgi.py
+ 
+    <Directory /root/back>
+        AllowOverride all
+        Require all granted
+        Options FollowSymlinks
+    </Directory>
+ 
+    DocumentRoot /root/back
+</VirtualHost>
+ 
+Include "/opt/bitnami/apache/conf/bitnami/bitnami-ssl.conf"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+o. Press the Esc, type :wq!, and press Enter to save and quit Vim.
+
+p. Enter the following command to restart Apache:
+
+sudo /opt/bitnami/ctlscript.sh restart apache
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<VirtualHost *:80>
+ServerAdmin vivekbilla345@gmail.com
+DocumentRoot /root/back
+ErrorLog ${APACHE_LOG_DIR}/error.log
+CustomLog ${APACHE_LOG_DIR}/access.log combined
+Alias /static /root/back/static
+<Directory /root/back/static>
+Require all granted
+</Directory>
+<Directory /root/back/honeb>
+<Files wsgi.py>
+Require all granted
+</Files>
+</Directory>
+WSGIDaemonProcess honeb python-path=/root/back python-home=/root/backenv
+WSGIProcessGroup honeb
+WSGIScriptAlias / /root/back/honeb/wsgi.py
+</VirtualHost>
+
+
+
+
+
+
+
+
+
+
+<VirtualHost *:80>
+	ServerAdmin admin@djangoproject.localhost
+	ServerName djangoproject.localhost
+	ServerAlias www.djangoproject.localhost
+	DocumentRoot /root/back
+	ErrorLog ${APACHE_LOG_DIR}/error.log
+	CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+	Alias /static /root/back/static
+	<Directory /root/back/static>
+		Require all granted
+	</Directory>
+
+	Alias /static /root/back/media
+	<Directory /root/back/media>
+		Require all granted
+	</Directory>
+
+	<Directory /root/back/honeb>
+		<Files wsgi.py>
+			Require all granted
+		</Files>
+	</Directory>
+
+	WSGIDaemonProcess django_project python-path=/root/back python-home=/root/back/env
+	WSGIProcessGroup django_project
+	WSGIScriptAlias / /root/back/honeb/wsgi.py
+</VirtualHost>

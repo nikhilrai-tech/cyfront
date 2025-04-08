@@ -1,0 +1,34 @@
+// Ref: https://github.com/nuxt-community/vuetify-module#customvariables
+$body-font-family: 'Rajdhani', 'Segoe UI', sans-serif;
+//
+// The variables you want to modify
+// $font-size-root: 20px;
+$material-light: (
+  'text-fields': (
+    'outlined': rgba(0,0,0, 0.19),
+    'outlined-hover': rgba(0,0,0, 0.38),
+  ),
+);
+.v-application {
+  .display-4,
+  .display-3,
+  .display-2,
+  .display-1,
+  .headline,
+  .title,
+  .subtitle-1,
+  .subtitle-2,
+  .body-1,
+  .body-2,
+  .caption,
+  .text-caption,
+  .overline
+  {
+      font-family: $body-font-family;
+  }
+}
+
+$text-field-outlined-fieldset-border: 1px solid (--v-primary-base)!important;
+
+
+

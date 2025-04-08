@@ -1,0 +1,219 @@
+<template>
+<svg :id="`cyber3ra-svg-${type}`" :class="`svg-${size}`" width="109" height="99" viewBox="0 0 109 99" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g id="cyber3ra">
+        <g id="green_wing" :class="`svg-${speed}`">
+            <path d="M14 13C13 9.5 13.1667 3.33333 13.5 0C8.7 4.8 6.50001 11.5 6.00001 15.5C5.5 22.5 10 28.5 12 30.5C13.5 32.5 19.5 37.5 20.5 38.5C21.3 39.3 26.8333 43.8333 29.5 46H30L32 39V33.5C26.5 30 16 21 14 13Z" />
+            <path d="M37 43C32.8202 38.3558 34 33.3333 35.5 31L36.5 33C39 38.5 52.5 48 58.5 53.5C63.3 57.5 59.3333 73 57 80C56 83.5 56 86 57 87C55.8 88.6 54 89.5 52.5 88.5C47.5 84.5 51.9795 76.6507 53.5 65.5C55 54.5 41.5 48.5 37 43Z" />
+            <path d="M37.5 56.5C30.7 51.7 31.6667 43.8333 33 40.5C34.2 44.1 40.8333 49.6667 44 52C53 58 52.5 64 52 65.5C51 65 46 62.5 37.5 56.5Z" />
+            <path d="M41.5 67.5C31.1 64.3 30.5 56.1667 31.5 52.5C34 57.5 45.5 65 49 65.5C51.8 65.9 51.5 69.3333 51 71C49.1667 70.3333 44.7 68.7 41.5 67.5Z" />
+            <path d="M49.5 75.5C33.1 73.9 30.3333 66.8333 31 63.5C34.6 68.3 45.5 71.1667 50.5 72C50.5 73.5 50 75 49.5 75.5Z" />
+            <path d="M48.5 80C34.1 80.8 30.8333 75 31 72C35 75.2 44.6667 76.3333 49 76.5C49.5 77.5 48.5 79.5 48.5 80Z" />
+            <path d="M48.5 84.5C34.9 85.3 33.1667 81.5 34 79.5C36.4 81.9 44.6667 81.8333 48.5 81.5C49 82 48.5 84 48.5 84.5Z" />
+            <path d="M49.5 88C41.1 90.8 37.3333 87.8333 36.5 86C42.1 87.2 46.8333 86.1667 48.5 85.5C49 86 49 87 49.5 88Z" />
+            <path d="M51.5 90.5C46.3 93.7 42 92.1667 40.5 91C43.7 91 48.5 89.6667 50.5 89C51 89.5 51.6909 90.3825 51.5 90.5Z" />
+            <path d="M55 91.5C53.4 94.3 50 94.3333 48.5 94C50.9 93.2 52.5 91.6667 53 91C54 91 54.5 91 55 91.5Z" />
+            <path d="M28.5 56.5C0.899994 43.3 -6.4373e-06 27.6667 2.99999 21.5C5.80001 31.5 20.1667 42.3333 27 46.5C31.5 49 29 53 28.5 56.5Z" />
+            <path d="M28.5 67.5C1.30001 57.5 -0.833346 44.6667 1.49998 39.5C5.09996 47.1 21 55.6667 28.5 59C30.5 60 28.5 65.5 28.5 67.5Z" />
+            <path d="M28 75C11.6 73 7.16667 64.5 7 60.5C12.2 65.7 23.1667 68.6667 28 69.5C29 70.5 28.5 73 28 75Z" />
+            <path d="M31 83C19 82.6 16.6667 77.8333 17 75.5C19.8 77.1 26.8333 77.5 30 77.5C32 78.5 31.5 80 31 83Z" />
+            <path d="M34 89C29.6 91.0378 24.5 86.8491 22.5 84.5C26.1 85.7 31 85.6667 33 85.5C34.5 85.5 34 87 34 89Z" />
+            <path d="M37.5 93C34.3 95 30.1667 92.8333 28.5 91.5C31.7 92.3 34.5 91.1667 35.5 90.5C37.5 90.5 36.5 91.5 37.5 93Z" />
+            <path d="M42.5 95.5C39.7 97.994 36.6667 96.8725 35.5 96C36.3 96 38.5 94.6667 39.5 94C41.6667 93.4608 41.5 94 42.5 95.5Z" />
+            <path d="M48 97.5C45.6 99.9 42.3333 98.8333 41 98C42.6 98 45 96.3333 46 95.5C46.5 95.5 48 96 48 97.5Z" />
+        </g>
+        <g id="orange_wing" :class="`svg-${speed}`">
+            <path id="Vector 5" d="M65.5 70.5C69.5 66 77.5 67 86.5 62C86.9 66 83.3333 68 81.5 68.5C75.5 70 69 71.5 67.5 76C66.5 78 65.5 88 62 90.5C59.6 92.5 58 89 57.5 87C63 89.5 62 74 65.5 70.5Z"/>
+            <path d="M85.5 68C85 73 82 76 68.5 77C69 71.5 81 71 85.5 68Z"/>
+            <path d="M67.5 80.5C81 82 82 78.5 83.5 75C79.5 77.4 71.5 78 68 78C67.5 78.5 67.5 79.4999 67.5 80.4999V80.5Z"/>
+            <path d="M67 83.5C74.2 86.3 79 83.3333 80.5 81.5C76.5 82.7 70.1667 82 67.5 81.5C67 82 67 82.9998 67 83.4999V83.5Z"/>
+            <path d="M66.5 86C73.7 90.4 77.1667 87.8333 78 86C74 86.8 69 85 67 84C66.5 84.5 66.5 85.5 66.5 86Z"/>
+            <path d="M65 88.5C71 92.9 74.1667 91.3333 75 90C71.8 90.4 67.6667 88.1667 66 87C65.5 87.5 65 88 65 88.5Z"/>
+            <path d="M63.5 90.5C66.7 93.7 70.1667 93.1667 71.5 92.5C69.9 92.9 66.5 90.6667 65 89.5C64.5 89.5 63.5 90.5 63.5 90.5Z"/>
+            <path d="M62 92C64 94.4 66.8333 94.6667 68 94.5C66.4 94.1 64 92 63 91C62.5 91 62 91.5 62 92Z"/>
+            <path d="M60 92C60.8 94.4 62.6667 94.6667 63.5 94.5C62.7 94.1 61.5 92.6667 61 92H60Z"/>
+            <path d="M86 71.5C107.6 68.7 109.333 55.6667 107.5 49.5C105.1 60.7 93.5 63.8333 88 64C87 65.5 86.5 69 86 71.5Z"/>
+            <path d="M84 78C104.4 76.4 108.167 68.6667 107.5 65C103.5 70.2 92.5 72.1667 87.5 72.5C85.5 73 85 73.5 84 78Z"/>
+            <path d="M81 84C98.2 85.6 103.5 79 104 75.5C100.4 78.7 89.1667 79.1667 84 79C82 79 82 82 81 84Z"/>
+            <path d="M78.5 88.5C87.3 92.3507 93.5 87.7711 95.5 85C91.5 86.6 84.1667 85.6667 81 85C80.5 85 79 85.5 78.5 88.5Z"/>
+            <path d="M75 92.5C79.9456 95.6152 84.0607 93.4647 85.5 92C82.3 91.6 79.1667 90.1667 78 89.5C77.5 89.5 76 89.5 75 92.5Z"/>
+            <path d="M71.5 94.5C74.3 97.3 78 96.6667 79.5 96C78.3 96 75.6667 94 74.5 93C74 93 72 93 71.5 94.5Z"/>
+            <path d="M68.5 95.5C71.0565 98.3598 73.5652 98.3582 74.5 98C72.5 97.2 71 95.3333 70.5 94.5C69.5 95 68.5 95 68.5 95.5Z"/>
+            <path d="M65 96C66.0119 98 68.4216 98.5 69.5 98.5C68.7 98.5 67.8333 96.8333 67.5 96C67 95.5 65.5 96 65 96Z"/>
+            <path d="M62 96C62.4 97.2 64.5 98.1667 65.5 98.5C64.5 98 64 96.5 64 96C63.5 95.5 61.5 94.5 62 96Z"/>
+        </g>
+    </g>
+</svg>
+</template>
+
+
+<script>
+export default {
+    name: 'LogoComponent',
+    props: {
+      type: { type: String, default: ()=> 'auto'},
+      size: { type: String, default: ()=> 'medium'},
+      speed: { type: String, default: ()=> 'middle'},
+    },
+}
+</script>
+
+<style lang="scss" scoped>
+
+#cyber3ra-svg-auto, #cyber3ra-svg-hover, #cyber3ra-svg-event {
+  overflow: visible;
+}
+#green_wing {
+  fill: #1D951B;
+}
+#orange_wing {
+  fill: #D86411;
+}
+
+#cyber3ra-svg-auto #orange_wing {
+  animation: orangeAnimation 700ms ease 0s infinite;
+}
+#cyber3ra-svg-auto #green_wing {
+  animation: greenAnimation 700ms ease 0s infinite;
+}
+
+#cyber3ra-svg-hover:hover #orange_wing {
+  animation: orangeAnimation 700ms ease 0s infinite;
+}
+#cyber3ra-svg-hover:hover #green_wing {
+  animation: greenAnimation 700ms ease 0s infinite;
+}
+
+.svg-xs {
+  width: 30px !important;
+  height: 27px !important;
+}
+.svg-small {
+  width: 40px !important;
+  height: 35px !important;
+}
+.svg-medium {
+  width: 110px !important;
+  height: 100px !important;
+}
+.svg-large {
+  width: 165px !important;
+  height: 150px !important;
+}
+
+.svg-slow {
+  animation-duration: 1500ms !important;
+}
+.svg-middle {
+  animation-duration: 700ms !important;
+}
+.svg-fast {
+  animation-duration: 200ms !important;
+}
+
+#orange_wing, #green_wing {
+  transform-origin: 55% 90%;
+  will-change: transform;
+}
+@keyframes greenAnimation {
+  0% {
+    transform: rotate(0deg);
+    fill: #1D951B;
+  }
+  40% {
+    transform: rotate(-20deg);
+    fill: #0c5e0a;
+  }
+  90% {
+    transform: rotate(5deg);
+    fill: #42c440;
+  }
+}
+
+@keyframes orangeAnimation {
+  0% {
+    transform: rotate(0deg);
+    fill: #D86411;
+  }
+  40% {
+    transform: rotate(30deg);
+    fill: #ac4903;
+  }
+  90% {
+    transform: rotate(-5deg);
+    fill: #f17f2d;
+  }
+}
+.theme-dark[neon="true"] #orange_wing {
+  animation: neonorangeAnimation 6s ease 0s infinite;
+  animation-duration: 3000ms !important;
+}
+.theme-dark[neon="true"] #green_wing {
+  animation: neongreenAnimation 6s ease 0s infinite;
+  animation-duration: 3000ms !important;
+}
+
+.theme-dark[neon="true"] #cyber3ra-svg-hover:hover #orange_wing {
+  animation: orangeAnimation 700ms ease 0s infinite,neonorangeAnimation 700ms ease 0s infinite;
+}
+.theme-dark[neon="true"] #cyber3ra-svg-hover:hover #green_wing {
+  animation: greenAnimation 700ms ease 0s infinite,neongreenAnimation 700ms ease 0s infinite;
+}
+@keyframes neonorangeAnimation {
+  0% {
+    fill: #D86411;
+  }
+  50% {
+    fill: #ac0303;
+  }
+  100% {
+    fill: #D86411;
+  }
+}
+@keyframes neongreenAnimation {
+  0% {
+    fill: #1D951B;
+  }
+  50% {
+    fill: #2737c5;
+  }
+  100% {
+    fill: #1D951B;
+  }
+}
+// @keyframes greenAnimation {
+//   0% {
+//     transform: rotate(0deg);
+//   }
+//   40% {
+//     transform: rotate(-20deg);
+//   }
+//   // 80% {
+//   //   transform: rotate(0deg);
+//   // }
+//   90% {
+//     transform: rotate(5deg);
+//   }
+//   100% {
+//     transform: rotate(0deg);
+//   }
+// }
+
+// @keyframes orangeAnimation {
+//   0% {
+//     transform: rotate(0deg);
+//   }
+//   40% {
+//     transform: rotate(30deg);
+//   }
+//   // 60% {
+//   //   transform: rotate(0deg);
+//   // }
+//   90% {
+//     transform: rotate(-5deg);
+//   }
+//   100% {
+//     transform: rotate(0deg);
+//   }
+// }
+
+</style>
