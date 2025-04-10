@@ -93,7 +93,7 @@
 
     <v-footer :absolute="false" >
       <v-spacer />
-      <span>Cyber3ra &copy; {{ new Date().getFullYear() }} </span>
+      <span>SecuriumX &copy; {{ new Date().getFullYear() }} </span>
     </v-footer>
 
     <Snackbar />

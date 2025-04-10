@@ -10,15 +10,15 @@ export default {
   },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s - Cyber3ra',
-    title: "India's First Crowd Source Bug Bounty Platform",
+    titleTemplate: '%s - SecuriumX',
+    title: "Where Bugs Meet Bounties",
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' },
       { name: 'format-detection', content: 'telephone=no' },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/logo.svg'},
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/SECURIUM.svg'},
       {rel: 'stylesheet', type: 'text/css', href: 'https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css'}
     ],
   },
@@ -73,17 +73,17 @@ export default {
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-    // baseURL: 'https://backstage.cyber3ra.com',
-    baseURL: 'https://cyback.onrender.com',  
+    baseURL: 'http://127.0.0.1:8000',
+    // baseURL: 'https://cyback.onrender.com',  
   },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
     manifest: {
-      name: 'Cyber3ra Bug Bounty Platform',
-      short_name: 'Cyber3ra',
+      name: 'SecuriumX Bug Bounty Platform',
+      short_name: 'SecuriumX',
       lang: 'en',
-      description: "India's First Crowdsource Bug Bounty Platform - Cyber3ra",
+      description: "Where Bugs Meet Bounties - SecuriumX",
       start_url: "/",
       background_color: '#000',
       theme_color: "#000"

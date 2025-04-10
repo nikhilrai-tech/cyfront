@@ -110,7 +110,7 @@
     </v-main>
 
     <v-footer :absolute="false" >
-      <span>Cyber3ra &copy; {{ new Date().getFullYear() }} </span>
+      <span>SecuriumX &copy; {{ new Date().getFullYear() }} </span>
     </v-footer>
 
 

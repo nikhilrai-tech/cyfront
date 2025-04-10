@@ -15,7 +15,7 @@
 
     <v-footer :absolute="false" >
       <v-spacer />
-      <span>Cyber3ra &copy; {{ new Date().getFullYear() }} </span>
+      <span>SecuriumX &copy; {{ new Date().getFullYear() }} </span>
     </v-footer>
 
   </v-app>
@@ -44,7 +44,7 @@ export default {
           to: '/inspire',
         },
       ],
-      title: 'Cyber3ra',
+      title: 'SecuriumX',
       snackbar: {
           message: 'An Error Occured',
           type: 'error',

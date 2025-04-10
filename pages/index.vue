@@ -4,20 +4,18 @@
     <v-row justify="center" align="center" class="mainc">
       <v-col cols="12" sm="6" md="6" class="pl-6 py-2" align="center">
       <h1 class="titlemain">
-          Pay a <span className='mobile-block'></span> Reward
+          <span class="threed-effect">Fortify Your Future with SecuriumX</span>
       </h1>
-      <h1 class="titlemain">
-       Not a <span className='mobile-block'></span> Ransom</h1>
+      
       </v-col>
       <v-col cols="12" sm="6" md="6" class="pl-6 py-2" >
-          <!-- <img src="/cyber3ra.svg" alt="Cyber3ra"> -->
+          <!-- <img src="/SECURIUM.svg" alt="SecuriumX"> -->
           <!-- <logo :type="'auto'" /> -->
 
       </v-col>
     <v-row justify="center" align="center" class="mainc">
     </v-row>
       <v-col cols="12" sm="6" md="6" align="center" class="pl-6 py-4" >
-        <v-btn v-if="!$auth.loggedIn" color="secondary" to="/?action=register">Get Started</v-btn>
         <!-- <v-card width="400">Countdown</v-card> -->
       </v-col>
       <v-col cols="12" sm="6" md="6" class="pl-6 py-2" >
@@ -26,117 +24,91 @@
     </v-row>
 
     <v-row justify="center" align="center" class="my-9">
-      <v-col cols="12" sm="8" md="10">
-        <v-card class="px-5 py-5">
-          <v-row justify="center" align="center">
-            <v-col cols="12" sm="5" md="5" align="center">
-              <h3 class="text-display-2c glitch2" data-glitch2="Why Evaluate your Security with Cyber3ra?">Why Evaluate your Security with Cyber3ra?</h3>
-            </v-col>
-            <v-col cols="12" sm="7" md="7" class="px-14 py-9">
-                <p class="text-justify mb-0">Cyber threats are increasing tremendously - together with your needs for agility. As a result, 
-                  traditional approaches and tools no longer meet the challenges of digital transformation. Cyber3ra and its community of experts 
-                  provide you with a disruptive solution: Bug Bounty, which bridges the gap between ethical hackers and companies to test and patch 
-                  security vulnerabilities in real-time.</p>
-            </v-col>
-          </v-row>
-        </v-card>
-      </v-col>
-    </v-row>
+  <v-col cols="12" sm="8" md="10">
+    <v-card class="px-5 py-5">
+      <v-row justify="center" align="center">
+        <v-col cols="12" sm="5" md="5" align="center">
+          <h3 class="text-display-2c glitch2" data-glitch2="Why Evaluate your Security with SecuriumX?">Why Evaluate your Security with SecuriumX?</h3>
+        </v-col>
+        <v-col cols="12" sm="7" md="7" class="px-14 py-9">
+          <p class="text-justify mb-0">
+            In today's digital landscape, cyber threats evolve rapidly, demanding agile security solutions. Traditional methods often fall short in addressing these dynamic challenges. SecuriumX offers a cutting-edge approach through our Bug Bounty program, connecting companies with a global network of ethical hackers. This collaboration enables real-time identification and patching of vulnerabilities, ensuring your digital assets remain secure against the latest threats.
+          </p>
+        </v-col>
+      </v-row>
+    </v-card>
+  </v-col>
+</v-row>
+    
+    
     
     <v-row justify="center" align="center" class="my-9">
-      <v-col cols="12" sm="8" md="10">
+  <v-col cols="12" sm="8" md="10">
+    <v-card class="px-5 py-5">
+      <v-row justify="center" align="center">
+        <v-col cols="12" sm="5" md="5" align="center">
+          <h3 class="text-display-2c glitch2" data-glitch2="About Us">About Us</h3>
+        </v-col>
+        <v-col cols="12" sm="7" md="7" class="px-14 py-9">
+          <p class="text-justify mb-0">
+            SecuriumX is a pioneering platform in the cybersecurity industry, dedicated to enhancing digital security through crowdsourced ethical hacking. We connect businesses with a global network of skilled security researchers who identify and report vulnerabilities in real-time. Our bug bounty programs empower companies to proactively manage their cybersecurity, while providing ethical hackers with opportunities to showcase their skills and earn rewards. As a rapidly growing cybersecurity community and company, SecuriumX is committed to fostering a safer digital world through collaboration and innovation.
+          </p>
+        </v-col>
+      </v-row>
+    </v-card>
+  </v-col>
+</v-row>
+    
+<v-row justify="center" align="center" class="my-9">
+  <v-col cols="12" sm="12" md="12">
+    <v-row justify="space-around" align="center">
+      <v-col cols="12" sm="4" md="4">
         <v-card class="px-5 py-5">
           <v-row justify="center" align="center">
-            <v-col cols="12" sm="9" md="9" align="center" class="px-14 py-9">
-              <h3 class="text-display-2c glitch2" data-glitch2="Leaderboards">Leaderboards</h3>
-              <p>
-                Early invites: We are inviting Cyber Security professionals and Enthausits to sign up, and the top 3 enthusiasts will receive 
-                exclusive merchandising and access to early programs. In addition, the top 100 will receive free training and access to private programs.
-
-                Bug bounty programs permit free security analysts to report bugs to an association and get prizes or remuneration. These bugs are typically 
-                security endeavours and weaknesses. However, they can likewise incorporate interaction issues, equipment imperfections, etc.
+            <v-col cols="12" align="center">
+              <h3 class="text-display-2c glitch2" data-glitch2="Want to Hunt Bugs?">Want to Hunt Bugs?</h3>
+            </v-col>
+            <v-col cols="12" class="px-14 py-9">
+              <p class="text-justify mb-0">
+                Embark on your bug bounty journey with SecuriumX. Help secure the digital ecosystem for companies while earning rewards. Ready to make an impact? Join now and start hunting!
               </p>
             </v-col>
-            <v-col cols="12" sm="3" md="3" class="px-14 py-9">
-              <!-- <v-app-bar >
-                <v-app-bar-title>Leaderbaord</v-app-bar-title>
-              </v-app-bar> -->
-              <v-simple-table fixed-header>
-                <template #default>
-                  <thead>
-                    <tr ><th class="text-left ">Rank</th><th class="text-left ">Name</th><th class="text-left">Reputation</th></tr>
-                  </thead>
-                  <tbody>
-                    <tr v-for="(user, i) in users" :key="user.username">
-                      <td>{{ i+1 }}</td>
-                      <td>{{ user.username }}</td>
-                      <td>{{ user.totalreputation }}</td>
-                    </tr>
-                  </tbody>
-                </template>
-              </v-simple-table>
-            </v-col>
           </v-row>
         </v-card>
       </v-col>
-    </v-row>
-    
-    <v-row justify="center" align="center" class="my-9">
-      <v-col cols="12" sm="8" md="10">
+
+      <v-col cols="12" sm="4" md="4">
         <v-card class="px-5 py-5">
           <v-row justify="center" align="center">
-            <v-col cols="12" sm="4" md="4" align="center">
-              <h3 class="text-display-2c glitch2" data-glitch2="About Us"> About Us</h3>
-            </v-col>
-            <v-col cols="12" sm="8" md="8" class="px-14 py-9">
-                <p class="text-justify mb-0">
-                  Cyber3ra is INDIA's first crowdsourced ethical bug bounty platform which bridges the gap between companies and ethical hackers. 
-                  We offer bug bounty solutions where companies can run and manage their bug bounty programs, and security enthusiasts can test and report potential 
-                  threats and vulnerabilities in those programs. A bug bounty is a way to crowdsource and identify potential threats and vulnerabilities on web applications 
-                  and safeguard them
-                    We Proudly Stand as one of the fastest growing Cyber Security and Technology Based Community and Company.
-                </p>
-            </v-col>
-          </v-row>
-        </v-card>
-      </v-col>
-    </v-row>
-    
-    <v-row justify="center" align="center" class="my-9">
-      <v-col cols="12" sm="8" md="10">
-        <v-card class="px-5 py-5">
-          <v-row justify="center" align="center">
-            <v-col cols="12" sm="5" md="5" align="center">
-              <h3 class="text-display-2c glitch2" data-glitch2="Want to hunt bugs?">Want to hunt bugs?</h3>
-            </v-col>
-            <v-col cols="12" sm="7" md="7" class="px-14 py-9">
-                <p class="text-justify mb-0">
-                  Get started with the bug bounty journey with us and help companies get the digital ecosystem secured and earn out of 
-                  it. Sounds interesting – Join now to get started
-                </p>
-            </v-col>
-          </v-row>
-        </v-card>
-      </v-col>
-    </v-row>
-    
-    <v-row justify="center" align="center" class="my-9">
-      <v-col cols="12" sm="8" md="10">
-        <v-card class="px-5 py-5">
-          <v-row justify="center" align="center">
-            <v-col cols="12" sm="7" md="7" align="center">
+            <v-col cols="12" align="center">
               <h3 class="text-display-2c glitch2" data-glitch2="Want to Start a Bug Bounty Program?">Want to Start a Bug Bounty Program?</h3>
             </v-col>
-            <v-col cols="12" sm="5" md="5" class="px-14 py-9">
-                <p class="text-justify mb-0">
-                  "Precaution is always better than Cure" - Start your bug bounty program today itself and protect your organization 
-                  and data from cyber-attacks. Now what are you waiting for - Enquire Now
-                </p>
+            <v-col cols="12" class="px-14 py-9">
+              <p class="text-justify mb-0">
+                "Prevention is better than cure." Launch your bug bounty program with SecuriumX today to safeguard your organization and data from cyber threats. Don't wait – inquire now!
+              </p>
+            </v-col>
+          </v-row>
+        </v-card>
+      </v-col>
+
+      <v-col cols="12" sm="4" md="4">
+        <v-card class="px-5 py-5">
+          <v-row justify="center" align="center">
+            <v-col cols="12" align="center">
+              <h3 class="text-display-2c glitch2" data-glitch2="Want to Catch the Flag (CTF)?">Want to Catch the Flag (CTF)?</h3>
+            </v-col>
+            <v-col cols="12" class="px-14 py-9">
+              <p class="text-justify mb-0">
+                Test your cybersecurity skills in our exciting Capture the Flag (CTF) challenges. Compete against other security enthusiasts, learn new techniques, and showcase your expertise. Ready to capture the flag? Join our CTF events now!
+              </p>
             </v-col>
           </v-row>
         </v-card>
       </v-col>
     </v-row>
+  </v-col>
+</v-row>
     
     <v-row justify="center" align="center" class="my-9">
       <v-col cols="12" sm="8" md="10">
@@ -253,6 +225,28 @@ export default {
 }
 .theme--light .v-card {
     background-color: rgba(233,243,255,0.2) !important;
+}
+.threed-effect {
+  font-size: 100px;
+  font-weight: 700;
+  color: var(--head-text);
+  text-shadow: 
+    2px 2px 10px #9ac9ff, 
+    4px 4px 0px #58a6ff, 
+    6px 6px 0px #2196f3;
+  animation: threedAnimation 2s infinite;
+}
+
+@keyframes threedAnimation {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-2px, -2px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
 }
 .glitch2 {
   font-size: 1.5rem;
