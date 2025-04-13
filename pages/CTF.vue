@@ -122,7 +122,7 @@ export default {
   methods: {
     async fetchChallenges() {
       try {
-        const response = await axios.get('http://localhost:8000/api/challenges/');
+        const response = await axios.get('https://cyback.onrender.com/api/challenges/');
         const now = new Date();
 
         this.activeChallenges = response.data.filter(challenge => challenge.active && new Date(challenge.end_date) > now);
@@ -133,7 +133,7 @@ export default {
     },
     async fetchLeaderboard() {
       try {
-        const response = await axios.get('http://localhost:8000/api/leaderboard/');
+        const response = await axios.get('https://cyback.onrender.com/api/leaderboard/');
         this.leaderboard = response.data.map((user, index) => ({
           rank: index + 1,
           name: user.username,
@@ -147,7 +147,7 @@ export default {
     async fetchUserStats() {
       const token = localStorage.getItem('token'); // Ensure the token is retrieved
       try {
-        const response = await axios.get('http://localhost:8000/api/user/stats/', {
+        const response = await axios.get('https://cyback.onrender.com/api/user/stats/', {
           headers: {
             'Authorization': `Bearer ${token}` // Include the token in the Authorization header
           }
@@ -160,7 +160,7 @@ export default {
     async joinChallenge(challengeId) {
       try {
         const token = localStorage.getItem('token'); // Ensure the token is retrieved
-        const response = await axios.post(`http://localhost:8000/api/challenge/${challengeId}/join/`, {}, {
+        const response = await axios.post(`https://cyback.onrender.com/api/challenge/${challengeId}/join/`, {}, {
           headers: {
             'Authorization': `Bearer ${token}` // Ensure the token is included
           }
