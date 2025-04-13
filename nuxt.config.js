@@ -2,7 +2,7 @@ import colors from 'vuetify/es5/util/colors'
 
 export default {
   // Target: https://go.nuxtjs.dev/config-target
-  target: 'static',
+  target: 'server',
   
   server: {
     port: 3500,
@@ -68,9 +68,7 @@ export default {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    // baseURL: 'https://cyback.onrender.com',
-    baseURL: 'http://127.0.0.1:8000',
-
+    baseURL: 'https://cyback.onrender.com',
   },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
