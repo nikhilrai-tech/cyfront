@@ -71,17 +71,17 @@
         <v-card>
           <v-card-title>Your Stats</v-card-title>
           <v-card-text>
-            <p><strong>Challenges Solved:</strong> {{ stats.challengesSolved }}</p>
-            <p><strong>Total Points:</strong> {{ stats.totalPoints }}</p>
-            <p><strong>Rank:</strong> {{ stats.rank }}</p>
+            <p><strong>Username:</strong> {{ userStats.username }}</p>
+            <p><strong>Challenges Solved:</strong> {{ userStats.challenges_solved }}</p>
+            <p><strong>Total Points:</strong> {{ userStats.points }}</p>
             <v-progress-linear
-              :value="(stats.challengesSolved / 10) * 100"
+              :value="(userStats.challenges_solved / 10) * 100"
               color="success"
               height="20"
               rounded
             >
               <template #default>
-                {{ stats.challengesSolved }}/10
+                {{ userStats.challenges_solved }}/10
               </template>
             </v-progress-linear>
           </v-card-text>
@@ -104,18 +104,20 @@ export default {
         { text: 'Rank', value: 'rank' },
         { text: 'Name', value: 'name' },
         { text: 'Points', value: 'points' },
+        { text: 'Challenges Solved', value: 'challenges_solved' },
       ],
       leaderboard: [],
-      stats: {
-        challengesSolved: 5,
-        totalPoints: 2500,
-        rank: 4,
+      userStats: {
+        username: '',
+        points: 0,
+        challenges_solved: 0,
       },
     };
   },
   created() {
     this.fetchChallenges();
     this.fetchLeaderboard();
+    this.fetchUserStats(); // Fetch user stats on component creation
   },
   methods: {
     async fetchChallenges() {
@@ -123,13 +125,8 @@ export default {
         const response = await axios.get('http://localhost:8000/api/challenges/');
         const now = new Date();
 
-        // Categorize challenges based on their status
         this.activeChallenges = response.data.filter(challenge => challenge.active && new Date(challenge.end_date) > now);
         this.upcomingChallenges = response.data.filter(challenge => new Date(challenge.start_date) > now);
-
-        // Debugging output
-        console.log('Active Challenges:', this.activeChallenges);
-        console.log('Upcoming Challenges:', this.upcomingChallenges);
       } catch (error) {
         console.error('Error fetching challenges:', error);
       }
@@ -137,25 +134,44 @@ export default {
     async fetchLeaderboard() {
       try {
         const response = await axios.get('http://localhost:8000/api/leaderboard/');
-        this.leaderboard = response.data;
+        this.leaderboard = response.data.map((user, index) => ({
+          rank: index + 1,
+          name: user.username,
+          points: user.points,
+          challenges_solved: user.challenges_solved,
+        }));
       } catch (error) {
         console.error('Error fetching leaderboard:', error);
       }
     },
+    async fetchUserStats() {
+      const token = localStorage.getItem('token'); // Ensure the token is retrieved
+      try {
+        const response = await axios.get('http://localhost:8000/api/user/stats/', {
+          headers: {
+            'Authorization': `Bearer ${token}` // Include the token in the Authorization header
+          }
+        });
+        this.userStats = response.data; // Set user stats
+      } catch (error) {
+        console.error('Error fetching user stats:', error);
+      }
+    },
     async joinChallenge(challengeId) {
       try {
+        const token = localStorage.getItem('token'); // Ensure the token is retrieved
         const response = await axios.post(`http://localhost:8000/api/challenge/${challengeId}/join/`, {}, {
           headers: {
-            'Authorization': `Bearer ${localStorage.getItem('token')}` // Adjust for your auth method
+            'Authorization': `Bearer ${token}` // Ensure the token is included
           }
         });
         alert(response.data.message);
-        this.fetchChallenges(); // Refresh challenges after joining
+        this.$router.push({ name: 'ChallengeQuestions', params: { challengeId } }); // Navigate to the questions page
       } catch (error) {
         console.error('Error joining challenge:', error);
-        alert('Failed to join challenge.');
+        alert('Failed to join challenge. Please check your authentication.');
       }
-    },
+    }
   },
 };
 </script>
