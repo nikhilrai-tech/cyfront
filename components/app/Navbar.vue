@@ -41,7 +41,6 @@
         </div>
       </v-list>
     </v-navigation-drawer>
-
 </template>
 
 <script>
@@ -91,6 +90,11 @@ export default {
                     title: 'Hactivity',
                     to: '/hactivity',
                 },
+                {
+                    icon: 'mdi-flag', // Icon for CTF
+                    title: 'CTF',
+                    to: '/ctf', // Route for CTF page
+                },
                 {},
                 {
                     icon: 'mdi-cogs',
@@ -114,9 +118,7 @@ export default {
           this.drawer = false
         }
       })
-      // console.log((this.$store.state.navbar || this.$vuetify.breakpoint.width > 561) && this.$auth.loggedIn)
       this.drawer = (this.$store.state.navbar || this.$vuetify.breakpoint.width > 561) && this.$auth.loggedIn
     }
-    
 }
 </script>
