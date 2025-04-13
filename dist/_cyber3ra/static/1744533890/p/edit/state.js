@@ -1,0 +1,1 @@
+window.__NUXT__=(function(a){return {staticAssetsBase:"\u002F_cyber3ra\u002Fstatic\u002F1744533890",layout:"default",error:a,state:a,serverRendered:false,routePath:"\u002Fp\u002Fedit",config:{_app:{basePath:"\u002F",assetsPath:"\u002F_cyber3ra\u002F",cdnURL:a}}}}(null));

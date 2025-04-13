@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/", {data:[{users:[{username:"jahin",totalreputation:17},{username:"r4j35#",totalreputation:11},{username:"vivekbilla",totalreputation:8},{username:"secarmy",totalreputation:6},{username:"Cyber_Arm",totalreputation:5}]}],fetch:{},mutations:[["clearSnack",void 0]]});
