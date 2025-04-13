@@ -83,7 +83,7 @@ export default {
       name: 'SecuriumX Bug Bounty Platform',
       short_name: 'SecuriumX',
       lang: 'en',
-      description: "Where Bugs Meet Bounties - SecuriumX",
+      description: "Where Bugs Meet Bounties - Sec  uriumX",
       start_url: "/",
       background_color: '#000',
       theme_color: "#000"

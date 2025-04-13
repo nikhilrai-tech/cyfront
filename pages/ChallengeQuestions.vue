@@ -46,19 +46,24 @@
     methods: {
       async fetchChallengeQuestions() {
         const challengeId = this.$route.params.challengeId;
-        const token = localStorage.getItem('token'); // Retrieve the token
   
-        try {
-          const response = await axios.get(`https://cyback.onrender.com/api/challenges/${challengeId}/questions/`, {
-            headers: {
-              'Authorization': `Bearer ${token}` // Include the token in the Authorization header
-            }
-          });
-          this.challenge = response.data.challenge;
-          this.questions = response.data.questions;
-        } catch (error) {
-          console.error('Error fetching challenge questions:', error);
-          alert('Failed to fetch questions. Please check your authentication.');
+        if (process.client) { // Check if running on the client
+          const token = localStorage.getItem('token'); // Retrieve the token
+  
+          try {
+            const response = await axios.get(`https://cyback.onrender.com/api/challenges/${challengeId}/questions/`, {
+              headers: {
+                'Authorization': `Bearer ${token}` // Include the token in the Authorization header
+              }
+            });
+            this.challenge = response.data.challenge;
+            this.questions = response.data.questions;
+          } catch (error) {
+            console.error('Error fetching challenge questions:', error);
+            alert('Failed to fetch questions. Please check your authentication.');
+          }
+        } else {
+          alert('Local storage is not available. Please refresh the page.');
         }
       },
       async submitAnswers() {
@@ -68,19 +73,23 @@
           answer,
         }));
   
-        const token = localStorage.getItem('token'); // Retrieve the token
+        if (process.client) { // Check if running on the client
+          const token = localStorage.getItem('token'); // Retrieve the token
   
-        try {
-          const response = await axios.post(`https://cyback.onrender.com/api/challenges/${challengeId}/submit-answers/`, { answers }, {
-            headers: {
-              'Authorization': `Bearer ${token}` // Include the token in the Authorization header
-            }
-          });
-          alert(response.data.message);
-          this.$router.push('/ctf'); // Redirect to the /ctf page on success
-        } catch (error) {
-          console.error('Error submitting answers:', error);
-          alert('Failed to submit answers. Please try again.');
+          try {
+            const response = await axios.post(`https://cyback.onrender.com/api/challenges/${challengeId}/submit-answers/`, { answers }, {
+              headers: {
+                'Authorization': `Bearer ${token}` // Include the token in the Authorization header
+              }
+            });
+            alert(response.data.message);
+            this.$router.push('/ctf'); // Redirect to the /ctf page on success
+          } catch (error) {
+            console.error('Error submitting answers:', error);
+            alert('Failed to submit answers. Please try again.');
+          }
+        } else {
+          alert('Local storage is not available. Please refresh the page.');
         }
       },
     },
