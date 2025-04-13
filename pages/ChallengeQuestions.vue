@@ -49,7 +49,7 @@
         const token = localStorage.getItem('token'); // Retrieve the token
   
         try {
-          const response = await axios.get(`http://localhost:8000/api/challenges/${challengeId}/questions/`, {
+          const response = await axios.get(`https://cyback.onrender.com/api/challenges/${challengeId}/questions/`, {
             headers: {
               'Authorization': `Bearer ${token}` // Include the token in the Authorization header
             }
@@ -71,7 +71,7 @@
         const token = localStorage.getItem('token'); // Retrieve the token
   
         try {
-          const response = await axios.post(`http://localhost:8000/api/challenges/${challengeId}/submit-answers/`, { answers }, {
+          const response = await axios.post(`https://cyback.onrender.com/api/challenges/${challengeId}/submit-answers/`, { answers }, {
             headers: {
               'Authorization': `Bearer ${token}` // Include the token in the Authorization header
             }
