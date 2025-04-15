@@ -21,7 +21,7 @@
               outlined
             />
             <div v-if="question.image">
-              <v-img :src="`http://localhost:8000${question.image}`" max-width="200" />
+              <v-img :src="`https://cyback.onrender.com${question.image}`" max-width="200" />
               <v-btn 
                 color="primary" 
                 @click="downloadImage(question.image)"
@@ -31,7 +31,7 @@
               </v-btn>
             </div>
             <div v-if="question.file_upload">
-              <p>File: <a :href="`http://localhost:8000${question.file_upload}`" target="_blank">Download</a></p>
+              <p>File: <a :href="`https://cyback.onrender.com${question.file_upload}`" target="_blank">Download</a></p>
             </div>
             <v-btn 
               color="success" 
@@ -68,7 +68,7 @@ export default {
       const token = localStorage.getItem('token'); // Retrieve the token
 
       try {
-        const response = await axios.get(`http://127.0.0.1:8000/api/challenges/${challengeId}/questions/`, {
+        const response = await axios.get(`https://cyback.onrender.com/api/challenges/${challengeId}/questions/`, {
           headers: {
             'Authorization': `Bearer ${token}` // Include the token in the Authorization header
           }
@@ -81,7 +81,7 @@ export default {
       }
     },
     async downloadImage(imagePath) {
-      const response = await fetch(`http://localhost:8000${imagePath}`);
+      const response = await fetch(`https://cyback.onrender.com${imagePath}`);
       const blob = await response.blob();
       const link = document.createElement('a');
       link.href = window.URL.createObjectURL(blob);
@@ -104,7 +104,7 @@ export default {
       const token = localStorage.getItem('token'); // Retrieve the token
 
       try {
-        const response = await axios.post(`http://127.0.0.1:8000/api/challenges/${challengeId}/submit-answers/`, {
+        const response = await axios.post(`https://cyback.onrender.com/api/challenges/${challengeId}/submit-answers/`, {
           answers: [{ questionId, answer }], // Wrap the answer in an array
         }, {
           headers: {
