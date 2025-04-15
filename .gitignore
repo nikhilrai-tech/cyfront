@@ -92,5 +92,4 @@ sw.*
 .vercel
 
 package-lock.json
-
-dist/   
+ 
