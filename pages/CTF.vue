@@ -1,6 +1,5 @@
 <template>
   <v-container fluid class="ctf-container">
-    <!-- Header -->
     <v-row align="center" class="mb-4">
       <v-col cols="8">
         <h1 class="d-flex align-center">
@@ -9,10 +8,18 @@
         </h1>
       </v-col>
     </v-row>
-
-    <!-- Challenges Section -->
     <v-row>
-      <!-- Active Challenges -->
+      <v-col cols="12">
+        <v-card>
+          <v-card-title>How Participat in CTF Challenges</v-card-title>
+          <v-card-text>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/_KlNzxXBoB0?si=uYwCbKnFfriFIZbM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </v-card-text>
+        </v-card>
+      </v-col>
+    </v-row>
+
+    <v-row>
       <v-col md="6" cols="12">
         <h2>Active Challenges</h2>
         <v-card
@@ -33,7 +40,6 @@
         </v-card>
       </v-col>
 
-      <!-- Upcoming Challenges -->
       <v-col md="6" cols="12">
         <h2>Upcoming Challenges</h2>
         <v-card
@@ -51,9 +57,7 @@
       </v-col>
     </v-row>
 
-    <!-- Leaderboard & Stats Section -->
     <v-row>
-      <!-- Leaderboard -->
       <v-col md="6" cols="12">
         <v-card>
           <v-card-title>Leaderboard</v-card-title>
@@ -66,7 +70,6 @@
         </v-card>
       </v-col>
 
-      <!-- Stats -->
       <v-col md="6" cols="12">
         <v-card>
           <v-card-title>Your Stats</v-card-title>
@@ -75,7 +78,7 @@
             <p><strong>Challenges Solved:</strong> {{ userStats.challenges_solved }}</p>
             <p><strong>Total Points:</strong> {{ userStats.points }}</p>
             <v-progress-linear
-              :value="(userStats.challenges_solved / 10) * 100"
+              :value="Math.min((userStats.challenges_solved / 10) * 100, 100)"
               color="success"
               height="20"
               rounded
@@ -88,6 +91,9 @@
         </v-card>
       </v-col>
     </v-row>
+
+    <!-- Video Section -->
+    
   </v-container>
 </template>
 
@@ -114,15 +120,15 @@ export default {
       },
     };
   },
-  created() {
+  mounted() {
     this.fetchChallenges();
     this.fetchLeaderboard();
-    this.fetchUserStats(); // Fetch user stats on component creation
+    this.fetchUserStats(); // Fetch user stats only on the client
   },
   methods: {
     async fetchChallenges() {
       try {
-        const response = await axios.get('https://cyback.onrender.com/api/challenges/');
+        const response = await axios.get('http://127.0.0.1:8000/api/challenges/');
         const now = new Date();
 
         this.activeChallenges = response.data.filter(challenge => challenge.active && new Date(challenge.end_date) > now);
@@ -133,7 +139,7 @@ export default {
     },
     async fetchLeaderboard() {
       try {
-        const response = await axios.get('https://cyback.onrender.com/api/leaderboard/');
+        const response = await axios.get('http://127.0.0.1:8000/api/leaderboard/');
         this.leaderboard = response.data.map((user, index) => ({
           rank: index + 1,
           name: user.username,
@@ -145,28 +151,41 @@ export default {
       }
     },
     async fetchUserStats() {
-      const token = localStorage.getItem('token'); // Ensure the token is retrieved
-      try {
-        const response = await axios.get('https://cyback.onrender.com/api/user/stats/', {
-          headers: {
-            'Authorization': `Bearer ${token}` // Include the token in the Authorization header
-          }
-        });
-        this.userStats = response.data; // Set user stats
-      } catch (error) {
-        console.error('Error fetching user stats:', error);
+      if (process.client) { // Check if running on the client
+        const token = localStorage.getItem('token');
+        if (!token) {
+          alert('You need to log in to view your stats.');
+          this.$router.push('/login'); // Redirect to login if no token
+          return;
+        }
+        
+        try {
+          const response = await axios.get('http://127.0.0.1:8000/api/user/stats/', {
+            headers: {
+              'Authorization': `Bearer ${token}`
+            }
+          });
+          this.userStats = response.data; // Set user stats
+        } catch (error) {
+          console.error('Error fetching user stats:', error);
+        }
       }
     },
     async joinChallenge(challengeId) {
+      const token = localStorage.getItem('token');
+      if (!token) {
+        alert('You need to log in to join a challenge.');
+        this.$router.push('/login'); // Redirect to login if no token
+        return;
+      }
       try {
-        const token = localStorage.getItem('token'); // Ensure the token is retrieved
-        const response = await axios.post(`https://cyback.onrender.com/api/challenge/${challengeId}/join/`, {}, {
+        const response = await axios.post(`http://127.0.0.1:8000/api/challenge/${challengeId}/join/`, {}, {
           headers: {
-            'Authorization': `Bearer ${token}` // Ensure the token is included
+            'Authorization': `Bearer ${token}`
           }
         });
         alert(response.data.message);
-        this.$router.push({ name: 'ChallengeQuestions', params: { challengeId } }); // Navigate to the questions page
+        this.$router.push({ name: 'ChallengeQuestions', params: { challengeId } });
       } catch (error) {
         console.error('Error joining challenge:', error);
         alert('Failed to join challenge. Please check your authentication.');
