@@ -14,7 +14,7 @@
               <v-card-subtitle class="pl-0">#{{details.type}}</v-card-subtitle>
               <v-row no-gutters>
               <v-col sm="4">
-              <v-chip v-if="details.managed" small class="d-inline-block" style="margin-top: 5px; text-align: center; width: 200px;">Managed By Cyber3ra</v-chip>
+              <v-chip v-if="details.managed" small class="d-inline-block" style="margin-top: 5px; text-align: center; width: 200px;">Managed By SecuriumX</v-chip>
               </v-col>
               <v-col sm="4">
               <v-chip v-if="details.external" small class="d-inline-block" style="margin-top: 5px; text-align: center; width: 450px;">Managed By External</v-chip>

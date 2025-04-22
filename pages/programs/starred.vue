@@ -69,7 +69,7 @@
               <v-card-text>
                 <v-chip v-if="program.updated" color="secondary">Updated</v-chip>
                 <v-chip v-if="program.splitting" color="secondary">Bounty Splitting</v-chip>
-                <v-chip v-if="program.managed" color="secondary">Managed by Cyber3ra</v-chip>
+                <v-chip v-if="program.managed" color="secondary">Managed by SecuriumX</v-chip>
                 <v-chip v-if="program.active" color="secondary">Active</v-chip>
               </v-card-text>
               <v-card-text>

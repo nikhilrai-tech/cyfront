@@ -96,7 +96,7 @@
                 <!-- <v-slider v-model="program.critic"  step="100" min="2000" ticks ></v-slider> -->
               </v-col>
               <v-col cols="12" sm="3">
-                <v-switch v-model="program.managed" label="Managed By Cyber3ra" style="display: inline-block;"></v-switch>
+                <v-switch v-model="program.managed" label="Managed By SecuriumX" style="display: inline-block;"></v-switch>
               </v-col>
               <v-col cols="12" sm="3">
                 <v-switch v-model="program.splitting" label="Bounty Splitting Eligible" style="display: inline-block;"></v-switch>

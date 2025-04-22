@@ -168,6 +168,7 @@
               <v-card-subtitle class="d-flex align-center" style="font-size: 35px;">{{details.refreputation}}</v-card-subtitle>
             </v-card>
           </v-col>
+          
           <v-col v-if="(!$auth.user.is_company && !$auth.user.is_staff)" cols="12" sm="6" md="4">
             <v-card class="d-flex">
               <v-card-text>
@@ -186,6 +187,7 @@
               <v-card-subtitle class="d-flex align-center" style="font-size: 35px;">{{details.upvotereputation}}</v-card-subtitle>
             </v-card>
           </v-col>
+          
 
 
 

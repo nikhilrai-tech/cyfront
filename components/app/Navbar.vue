@@ -96,16 +96,16 @@ export default {
                     to: '/ctf', // Route for CTF page
                 },
                 {},
-                {
-                    icon: 'mdi-cogs',
-                    title: 'Settings',
-                    to: '/settings',
-                },
-                {
-                    icon: 'mdi-account-question',
-                    title: 'Contact Admin',
-                    to: '/contact',
-                },
+                // {
+                //     icon: 'mdi-cogs',
+                //     title: 'Settings',
+                //     to: '/settings',
+                // },
+                // {
+                //     icon: 'mdi-account-question',
+                //     title: 'Contact Admin',
+                //     to: '/contact',
+                // },
             ],
         }
     },

@@ -63,6 +63,9 @@
             <v-list-item-title>Toggle Theme</v-list-item-title>
           </v-list-item>
 
+          <v-list-item :key="2" :to="'settings'">
+            <v-list-item-title>Settings</v-list-item-title>
+          </v-list-item>
           <v-divider />
 
           <v-list-item :key="4" @click.stop="$auth.strategy.token.reset();window.location.reload()">

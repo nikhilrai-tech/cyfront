@@ -46,10 +46,15 @@
             <v-list-item-title>Profile</v-list-item-title>
           </v-list-item>
 
-          <v-list-item :key="2" router :to="'/'" >
+          <!-- <v-list-item :key="2" router :to="'/'" >
             <v-list-item-title>Landing Page</v-list-item-title>
+          </v-list-item> -->
+          <v-list-item :key="2" :to="'settings'">
+            <v-list-item-title>Settings</v-list-item-title>
           </v-list-item>
-
+          <v-list-item :key="2" :to="'/contact'">
+            <v-list-item-title>Support</v-list-item-title>
+          </v-list-item>
           <!-- <v-list-item :key="3" @click.stop="$vuetify.theme.dark = !$vuetify.theme.dark">
             <v-list-item-title>Toggle Theme</v-list-item-title>
           </v-list-item> -->

@@ -80,7 +80,7 @@ export default {
       value: '',
       step: 0,
       step2: 0,
-      string: `Hello ${this.$auth.user ? this.$auth.user.name : 'User'}, Welcome to Cyber3ra. We are here to explore Cyber3ra's New App`,
+      string: `Hello ${this.$auth.user ? this.$auth.user.name : 'User'}, Welcome to SecuriumX. We are here to explore SecuriumX New App`,
       string2: `Let's get to the new era, Are you ready to begin?`,
       string3: `Press E to Begin; 0 to Exit;`,
       i: 0,

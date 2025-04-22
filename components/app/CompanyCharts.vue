@@ -91,7 +91,8 @@
             <!-- <v-list-item v-for="(log,index) in logs" :key="index">
               <v-list-item-avatar>
                 <v-avatar size="75">
-                    <img v-if="log.user.profile" :src="log.user.profile" :alt="log.user.name" >
+                    <img v-if="log.user.
+                    " :src="log.user.profile" :alt="log.user.name" >
                     <v-icon v-else dark large> mdi-account-circle </v-icon>
                 </v-avatar>
               </v-list-item-avatar>

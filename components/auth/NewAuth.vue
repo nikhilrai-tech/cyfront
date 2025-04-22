@@ -400,7 +400,7 @@ export default {
 .theme--dark.v-tabs.login-dialog .v-tab--active:hover::before, .theme--dark.v-tabs.login-dialog .v-tab--active::before {
     opacity: 0 !important;
 }
-.login-button:hover {
+/* .login-button:hover {
     box-shadow: 0 0 10px #07cad4e3, 0 0 40px #07cad4e3, 0 0 80px #07cad4e3 !important;
-}
+} */
 </style>
