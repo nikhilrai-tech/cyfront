@@ -66,7 +66,7 @@
                                 <v-text-field v-if="signupvars.referred" v-model="signupvars.refcode" placeholder="Reference Code" type="password" class="py-0" prepend-inner-icon="mdi-key" outlined hide-details />
                             </v-card-text>
                             <v-card-text v-else class="px-10">
-                                <p class="text-body1">Account Signup Successful. An Email for activation has been sent to your registered Email. Follow the steps provided there.</p>
+                                <p class="text-body1">You've Successfully Registerd with SecuriumX.</p>
                             </v-card-text>
                             <v-card-text v-if="!signupvars.submitted" class="px-16 mb-5">
                                 <v-btn color="primary" :disabled="loading" type="submit" class="login-button" style="width: 100%;"> Signup </v-btn>

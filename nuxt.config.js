@@ -103,11 +103,11 @@ export default {
     customVariables: ['~/assets/variables.scss'],
     defaultAssets : {
       font: {
-        family: 'Rajdhani' 
+        family: 'Poppins', // Changed from Rajdhani to Poppins
       },
     },
     theme: {
-      dark : true,
+      light : true,
       themes: {
         options: { customProperties: true },
         dark: {

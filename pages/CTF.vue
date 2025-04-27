@@ -1,10 +1,10 @@
 <template>
   <v-container fluid class="ctf-container">
     <v-row align="center" class="mb-4">
-      <v-col cols="8">
+      <v-col cols="12" sm="8">
         <h1 class="d-flex align-center">
           <v-icon large class="mr-2">mdi-flag-checkered</v-icon>
-          Capture The Flag
+          <span>Capture The Flag</span>
         </h1>
       </v-col>
     </v-row>
@@ -14,7 +14,16 @@
         <v-card>
           <v-card-title>How to Participate in CTF Challenges</v-card-title>
           <v-card-text>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/_KlNzxXBoB0?si=uYwCbKnFfriFIZbM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <div class="video-container">
+              <iframe
+                :src="youtubeEmbedUrl"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
           </v-card-text>
         </v-card>
       </v-col>
@@ -25,12 +34,26 @@
         <h2>Your Certificates</h2>
         <div v-if="certificates.length > 0">
           <v-row>
-            <v-col v-for="certificate in certificates" :key="certificate.id" cols="3">
+            <v-col
+              v-for="certificate in certificates"
+              :key="certificate.id"
+              cols="12"
+              sm="6"
+              md="4"
+              lg="3"
+            >
               <v-card class="certificate-card">
-                <v-card-title>Your Certificate for {{ certificate.challenge_name }}</v-card-title>
+                <v-card-title class="text-body-1">{{ certificate.challenge_name }}</v-card-title>
                 <v-card-text>
                   <img :src="certificate.url" alt="Certificate" class="certificate-image" />
-                  <v-btn color="primary" @click="downloadCertificate(certificate.url)">Download Certificate</v-btn>
+                  <v-btn
+                    color="primary"
+                    block
+                    class="mt-2"
+                    @click="downloadCertificate(certificate.url)"
+                  >
+                    Download Certificate
+                  </v-btn>
                 </v-card-text>
               </v-card>
             </v-col>
@@ -46,7 +69,7 @@
     </v-row>
 
     <v-row>
-      <v-col md="6" cols="12">
+      <v-col cols="12" md="6">
         <h2>Active Challenges</h2>
         <v-card
           v-for="challenge in activeChallenges"
@@ -54,7 +77,7 @@
           class="mb-3 success-border"
           hover
         >
-          <v-card-title>{{ challenge.name }}</v-card-title>
+          <v-card-title class="text-h6">{{ challenge.name }}</v-card-title>
           <v-card-text>
             <p>{{ challenge.description }}</p>
             <h3 class="subtitle-1">Rules:</h3>
@@ -66,7 +89,7 @@
         </v-card>
       </v-col>
 
-      <v-col md="6" cols="12">
+      <v-col cols="12" md="6">
         <h2>Upcoming Challenges</h2>
         <v-card
           v-for="challenge in upcomingChallenges"
@@ -74,7 +97,7 @@
           class="mb-3 grey-border"
           hover
         >
-          <v-card-title>{{ challenge.name }}</v-card-title>
+          <v-card-title class="text-h6">{{ challenge.name }}</v-card-title>
           <v-card-text>
             <p>{{ challenge.description }}</p>
             <v-chip color="info" small>Upcoming</v-chip>
@@ -84,7 +107,7 @@
     </v-row>
 
     <v-row>
-      <v-col md="6" cols="12">
+      <v-col cols="12" md="6">
         <v-card>
           <v-card-title>Leaderboard</v-card-title>
           <v-data-table
@@ -92,11 +115,13 @@
             :items="leaderboard"
             hide-default-footer
             class="elevation-0"
+            :items-per-page="5"
+            mobile-breakpoint="600"
           />
         </v-card>
       </v-col>
 
-      <v-col md="6" cols="12">
+      <v-col cols="12" md="6">
         <v-card>
           <v-card-title>Your Stats</v-card-title>
           <v-card-text>
@@ -127,13 +152,14 @@ export default {
   name: 'CTF',
   data() {
     return {
+      youtubeEmbedUrl: 'https://www.youtube.com/embed/_KlNzxXBoB0?si=uYwCbKnFfriFIZbM',
       activeChallenges: [],
       upcomingChallenges: [],
       leaderboardHeaders: [
-        { text: 'Rank', value: 'rank' },
-        { text: 'Name', value: 'name' },
-        { text: 'Points', value: 'points' },
-        { text: 'Challenges Solved', value: 'challenges_solved' },
+        { text: 'Rank', value: 'rank', width: '15%' },
+        { text: 'Name', value: 'name', width: '35%' },
+        { text: 'Points', value: 'points', width: '25%' },
+        { text: 'Solved', value: 'challenges_solved', width: '25%' },
       ],
       leaderboard: [],
       userStats: {
@@ -141,15 +167,15 @@ export default {
         points: 0,
         challenges_solved: 0,
       },
-      certificates: [], // Added to store the user's certificates
+      certificates: [],
     };
   },
   mounted() {
     this.fetchChallenges();
     this.fetchLeaderboard();
-    this.fetchUserStats(); // Fetch user stats only on the client
+    this.fetchUserStats();
     this.fetchCertificates().then(() => {
-      console.log('Certificates:', this.certificates); // Log the certificates
+      console.log('Certificates:', this.certificates);
     });
   },
   methods: {
@@ -158,8 +184,12 @@ export default {
         const response = await axios.get('https://cyback.onrender.com/api/challenges/');
         const now = new Date();
 
-        this.activeChallenges = response.data.filter(challenge => challenge.active && new Date(challenge.end_date) > now);
-        this.upcomingChallenges = response.data.filter(challenge => new Date(challenge.start_date) > now);
+        this.activeChallenges = response.data.filter(
+          (challenge) => challenge.active && new Date(challenge.end_date) > now
+        );
+        this.upcomingChallenges = response.data.filter(
+          (challenge) => new Date(challenge.start_date) > now
+        );
       } catch (error) {
         console.error('Error fetching challenges:', error);
       }
@@ -178,21 +208,21 @@ export default {
       }
     },
     async fetchUserStats() {
-      if (process.client) { // Check if running on the client
+      if (process.client) {
         const token = localStorage.getItem('token');
         if (!token) {
           alert('You need to log in to view your stats.');
-          this.$router.push('/login'); // Redirect to login if no token
+          this.$router.push('/login');
           return;
         }
-        
+
         try {
           const response = await axios.get('https://cyback.onrender.com/api/user/stats/', {
             headers: {
-              'Authorization': `Bearer ${token}`
-            }
+              Authorization: `Bearer ${token}`,
+            },
           });
-          this.userStats = response.data; // Set user stats
+          this.userStats = response.data;
         } catch (error) {
           console.error('Error fetching user stats:', error);
         }
@@ -202,17 +232,17 @@ export default {
       const token = localStorage.getItem('token');
       if (!token) {
         alert('You need to log in to view your certificates.');
-        this.$router.push('/login'); // Redirect to login if no token
+        this.$router.push('/login');
         return;
       }
 
       try {
         const response = await axios.get('https://cyback.onrender.com/generate-certificate/', {
           headers: {
-            'Authorization': `Bearer ${token}`
-          }
+            Authorization: `Bearer ${token}`,
+          },
         });
-        this.certificates = response.data; // Set user certificates
+        this.certificates = response.data;
       } catch (error) {
         console.error('Error fetching certificates:', error);
       }
@@ -221,15 +251,19 @@ export default {
       const token = localStorage.getItem('token');
       if (!token) {
         alert('You need to log in to join a challenge.');
-        this.$router.push('/login'); // Redirect to login if no token
+        this.$router.push('/login');
         return;
       }
       try {
-        const response = await axios.post(`https://cyback.onrender.com/api/challenge/${challengeId}/join/`, {}, {
-          headers: {
-            'Authorization': `Bearer ${token}`
+        const response = await axios.post(
+          `https://cyback.onrender.com/api/challenge/${challengeId}/join/`,
+          {},
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
           }
-        });
+        );
         alert(response.data.message);
         this.$router.push({ name: 'ChallengeQuestions', params: { challengeId } });
       } catch (error) {
@@ -238,21 +272,21 @@ export default {
       }
     },
     async downloadCertificate(imagePath) {
-      console.log('Downloading:', imagePath); // Log the image path
+      console.log('Downloading:', imagePath);
       try {
         const response = await fetch(`https://cyback.onrender.com${imagePath}`);
-        console.log('Response status:', response.status); // Log the response status
+        console.log('Response status:', response.status);
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
         const blob = await response.blob();
         const link = document.createElement('a');
         link.href = window.URL.createObjectURL(blob);
-        link.download = imagePath.split('/').pop(); // Set the filename to the last part of the path
+        link.download = imagePath.split('/').pop();
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
-        window.URL.revokeObjectURL(link.href); // Clean up the URL object
+        window.URL.revokeObjectURL(link.href);
       } catch (error) {
         console.error('Error downloading the certificate:', error);
       }
@@ -264,7 +298,7 @@ export default {
 <style scoped>
 .ctf-container {
   min-height: 100vh;
-  padding-bottom: 2rem;
+  padding: 1rem;
 }
 
 .dark {
@@ -280,26 +314,103 @@ export default {
 }
 
 .success-border {
-  border-left: 5px solid #4caf50;
-}
-
-.certificate-card {
-  max-width: 100%; /* Ensure the card does not overflow */
-  margin: 10px; /* Add some margin for spacing */
-}
-
-.certificate-image {
-  width: 100%; /* Make the image responsive */
-  height: auto; /* Maintain aspect ratio */
+  border-left: 4px solid #4caf50;
 }
 
 .grey-border {
-  border-left: 5px solid #757575;
+  border-left: 4px solid #757575;
 }
 
-h1,
-h2,
-h3 {
+h1 {
+  font-size: clamp(1.8rem, 5vw, 2.2rem);
   font-weight: 600;
+}
+
+h2 {
+  font-size: clamp(1.5rem, 4vw, 1.8rem);
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-size: clamp(1.2rem, 3vw, 1.4rem);
+  font-weight: 600;
+}
+
+/* Responsive Video Container */
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  height: 0;
+  overflow: hidden;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Certificate Card */
+.certificate-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.certificate-image {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  max-height: 200px;
+  margin-bottom: 1rem;
+}
+
+/* Responsive Table */
+.v-data-table {
+  width: 100%;
+}
+
+.v-data-table >>> .v-data-table__wrapper {
+  overflow-x: auto;
+}
+
+/* Responsive Spacing */
+@media (max-width: 600px) {
+  .ctf-container {
+    padding: 0.5rem;
+  }
+
+  .v-card {
+    margin-bottom: 0.5rem;
+  }
+
+  .certificate-card {
+    margin: 0.5rem 0;
+  }
+
+  .v-btn {
+    width: 100%;
+  }
+}
+
+/* Adjust card title font sizes */
+.v-card-title {
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  word-break: break-word;
+}
+
+/* Ensure buttons are full-width on small screens */
+.v-card-actions .v-btn {
+  width: 100%;
+  justify-content: center;
+}
+
+@media (min-width: 600px) {
+  .v-card-actions .v-btn {
+    width: auto;
+  }
 }
 </style>

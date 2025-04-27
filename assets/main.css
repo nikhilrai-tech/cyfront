@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 
 @font-face {
@@ -10,7 +10,7 @@
 html { overflow-y: auto !important }
 
 *, .v-application, .v-application .headline {
-    font-family: Rajdhani, 'Segoe UI', sans-serif !important;
+    font-family: Poppins, 'Segoe UI', sans-serif !important;
     text-transform: none;
 }
 
