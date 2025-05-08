@@ -3,7 +3,7 @@
     <v-row justify="center" align="center" class="mainc">
       <v-col cols="12" sm="6" md="6" class="pl-6 py-2" align="center">
         <h1 class="titlemain">
-          <span class="threed-effect">Fortify Your Future with SecuriumX</span>
+          
         </h1>
       </v-col>
       <v-col cols="12" sm="6" md="6" class="pl-6 py-2">
@@ -97,30 +97,15 @@
       </v-col>
     </v-row>
 
-    <v-row justify="center" align="center" class="my-9 section-row">
-      <v-col cols="12" sm="8" md="10">
-        <v-card class="px-5 py-5">
-          <v-row justify="center" align="center">
-            <v-col cols="12" sm="7" md="7" align="center">
-              <h3 class="text-display-2c glitch2" data-glitch2="ConnectSecure">ConnectSecure</h3>
-            </v-col>
-            <v-col cols="12" sm="5" md="5" class="px-14 py-9">
-              <Contact />
-            </v-col>
-          </v-row>
-        </v-card>
-      </v-col>
-    </v-row>
+    
   </div>
 </template>
 
 <script>
-import Contact from "../components/universal/Contact.vue"
 // import Logo from '~/components/universal/Logo.vue'
 export default {
   name: 'IndexPage',
   components: {
-    Contact,
     // Logo,
   },
   layout: 'index',

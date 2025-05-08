@@ -7,11 +7,9 @@
             <v-card-actions>
               <v-row class="px-0 mx-0">
                 <v-col cols="12" class="text-center d-flex justify-center py-0 px-0">
-                  <img src="/logo.svg" class="align-self-center" width="50" height="50" />
+                  <img src="/SECURIUM.svg" class="align-self-center" width="50" height="50" />
                 </v-col>
-                <v-col cols="12" class="text-center py-0 px-0">
-                  <p class="text-caption" style="font-family: Monospace !important;">$ logname </p>
-                </v-col>
+                
               </v-row>
             </v-card-actions>
             <v-card-text>

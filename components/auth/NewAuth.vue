@@ -37,7 +37,7 @@
                         <div class="d-flex align-items-center px-3 py-1 rounded-pill mx-3" style="border: 1px solid rgba(255, 255, 255, 0.12);" >
                             <logo type="hover" size='xs' speed="fast" />
                             <p class="text-caption mb-0 ml-4" style="font-family: Monospace !important;line-height: 30px;">
-                                <span style="font-family: Monospace !important;" class="mr-1">></span>{{loginopen ? 'logname' : registeropen ? 'whoami' : 'help'}} </p>
+                                <span style="font-family: Monospace !important;" class="mr-1"></span></p>
                         </div>
                         <v-divider />
                     </v-card-actions>
